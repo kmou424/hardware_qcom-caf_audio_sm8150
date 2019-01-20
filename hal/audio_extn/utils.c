@@ -2912,6 +2912,7 @@ int audio_extn_utils_get_channels_from_string(const char *id_string)
     return -EINVAL;
 }
 
+#if defined(DEV_ARBI_ENABLED) || defined(SOUND_TRIGGER_ENABLED) || defined(AUDIO_LISTEN_ENABLED)
 void audio_extn_utils_release_snd_device(snd_device_t snd_device)
 {
     audio_extn_dev_arbi_release(snd_device);
@@ -3075,3 +3076,4 @@ size_t audio_extn_utils_get_input_buffer_size(uint32_t sample_rate,
 
     return size;
 }
+#endif
